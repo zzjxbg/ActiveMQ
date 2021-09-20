@@ -54,6 +54,7 @@ public class JmsConsumer {
                 if (message != null && message instanceof TextMessage) {
                     TextMessage textMessage =  (TextMessage) message;
                     System.out.println("*****消费者接收到消息:" + textMessage.getText());
+                    System.out.println("*****消费者接收到消息属性:" + textMessage.getStringProperty("c01"));
                 }
                 if (message != null && message instanceof MapMessage) {
                     MapMessage mapMessage =  (MapMessage) message;
