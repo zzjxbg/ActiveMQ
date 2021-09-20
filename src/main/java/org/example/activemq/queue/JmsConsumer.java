@@ -55,6 +55,10 @@ public class JmsConsumer {
                     TextMessage textMessage =  (TextMessage) message;
                     System.out.println("*****消费者接收到消息:" + textMessage.getText());
                 }
+                if (message != null && message instanceof MapMessage) {
+                    MapMessage mapMessage =  (MapMessage) message;
+                    System.out.println("*****消费者接收到消息:" + mapMessage.getString("k1"));
+                }
             }
         });
         //写数据可能太快了，而后台没有收到，资源就已经关闭了

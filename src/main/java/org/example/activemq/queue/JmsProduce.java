@@ -34,6 +34,10 @@ public class JmsProduce {
             TextMessage textMessage = session.createTextMessage("msg---" + i);
             //8.通过messageProducer发送给mq
             messageProducer.send(textMessage);
+
+            MapMessage mapMessage = session.createMapMessage();
+            mapMessage.setString("k1","mapMessage---v1");
+            messageProducer.send(mapMessage);
         }
         //9.关闭资源(顺着申请倒着关闭)
         messageProducer.close();
